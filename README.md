@@ -5,5 +5,5 @@
 
 Features:
 *It will encode the input text into unintelligible text.
-*Copy feature is used copy encrypted text.
+*Encrypted text can be copied and shared.
 *Encrypted text will decrypted by this app only.
