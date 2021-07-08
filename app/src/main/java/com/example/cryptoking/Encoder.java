@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -41,6 +42,19 @@ public class Encoder extends AppCompatActivity {
             cpb.setPrimaryClip(temp);
             Toast.makeText(this,"Copied",Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void share(View view)
+    {
+        String temp=etenc.getText().toString();
+        String rv=Encode.enc(temp);
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT,rv);
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
     }
 
 

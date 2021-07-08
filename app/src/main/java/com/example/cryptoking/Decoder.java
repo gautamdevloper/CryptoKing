@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -45,5 +46,19 @@ public class Decoder extends AppCompatActivity {
             cplboard.setPrimaryClip(temp);
             Toast.makeText(this,"Copied",Toast.LENGTH_LONG).show();
         }
+    }
+
+
+    public void share(View view)
+    {
+        String temp=etdec.getText().toString();
+        String rv=Decode.dec(temp);
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT,rv);
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
     }
 }

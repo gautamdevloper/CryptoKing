@@ -14,7 +14,7 @@ import android.widget.ViewFlipper;
 public class MainActivity extends AppCompatActivity {
 
 
-    Button enc,dec,abt;
+    Button enc,dec,abt,share;
     ViewFlipper vf;
     public void flipper(int images)
     {
